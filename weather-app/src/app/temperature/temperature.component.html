@@ -1,0 +1,21 @@
+<div class="container">
+  <form>
+    <input type="text" name="city" [(ngModel)]="city" placeholder="Enter a city name">
+    <button type="button" (click)="fetchTemperature()">Get Temperature</button>
+  </form>
+
+  <div *ngIf="weatherDataList.length > 0">
+    <h2>Weather Data</h2>
+    <ul>
+      <li *ngFor="let weatherData of weatherDataList">
+        <div *ngFor="let data of weatherData">
+          <h3>{{ data.name }}</h3>
+          <p>Temperature: {{ data.main?.temp }}</p>
+          <p>Humidity: {{ data.main?.humidity }}</p>
+          <p>Weather: {{ data.weather.description }}</p>
+        
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
